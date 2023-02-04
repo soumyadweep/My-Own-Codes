@@ -1,0 +1,30 @@
+name = input("Enter file:")
+fh=open(name)
+counts=dict()
+new=dict()
+for line in fh:
+    if line.startswith('From') and not line.startswith('From:'):
+        words=line.split()
+        
+        counts[words[5]]=counts.get(words[5],0)+1
+#print(counts)
+for key,value in counts.items():
+    k=key[:2]
+    new[k]=new.get(k,0)+1
+#print(new)
+for key,value in sorted(new.items()):
+    print(key,value)
+    
+output:
+04 3
+06 1
+07 1
+09 2
+10 3
+11 6
+14 1
+15 2
+16 4
+17 2
+18 1
+19 1
